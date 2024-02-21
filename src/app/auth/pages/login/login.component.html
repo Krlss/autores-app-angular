@@ -1,0 +1,54 @@
+<div id="login_container" class="row align-items-center">
+  <div class="col-md-6 offset-md-3">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="text-center">Login</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="loginFormGroup" (ngSubmit)="login()">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              formControlName="email"
+            />
+
+            <div
+              *ngIf="
+                loginFormGroup.controls['email'].invalid &&
+                loginFormGroup.controls['email'].touched
+              "
+              class="text-danger"
+            >
+              Email is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              formControlName="password"
+            />
+
+            <div
+              *ngIf="
+                loginFormGroup.controls['password'].invalid &&
+                loginFormGroup.controls['password'].touched
+              "
+              class="text-danger"
+            >
+              Password is required
+            </div>
+          </div>
+          <div class="text-center mt-4">
+            <button class="btn btn-primary" type="submit">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
