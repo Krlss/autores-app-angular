@@ -5,7 +5,7 @@
     </li>
 
     <li *ngIf="isAuth" class="list-group-item d-flex flex-column">
-      <a [routerLink]="['/home/favorites']">Favorites</a>
+      <a [routerLink]="['/home/favorites']">Favorites - ({{ authors.length + books.length }}) </a>
       Authors {{ authors.length }} - Books {{ books.length }}
     </li>
 
