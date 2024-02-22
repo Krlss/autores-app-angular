@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AutoresListComponent } from './pages/autores-list/autores-list.component';
 import { AutorObrasComponent } from './pages/autor-obras/autor-obras.component';
 import { VerAutorObraComponent } from './pages/ver-autor-obra/ver-autor-obra.component';
+import { FavoritesComponent } from '@app/author/pages/favorites/favorites.component';
 
 const routes: Routes = [
   {
@@ -14,12 +14,16 @@ const routes: Routes = [
         component: AutoresListComponent,
       },
       {
-        path: 'author/:id/works',
+        path: 'author/:author/books',
         component: AutorObrasComponent,
       },
       {
-        path: 'author/:id/works/:idWork',
+        path: 'author/:author/books/:title',
         component: VerAutorObraComponent,
+      },
+      {
+        path: 'favorites',
+        component: FavoritesComponent,
       },
       {
         path: '**',

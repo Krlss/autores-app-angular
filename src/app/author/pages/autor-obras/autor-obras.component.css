@@ -1,0 +1,11 @@
+h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #000;
+}
+
+.card {
+  margin-bottom: 20px;
+}

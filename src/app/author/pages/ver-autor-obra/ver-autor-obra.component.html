@@ -1,1 +1,17 @@
-<p>ver-autor-obra works!</p>
+<div class="container mt-4">
+  <div class="row">
+    <aside class="col-lg-3 col-md-4 mb-4">
+      <app-sidebar></app-sidebar>
+    </aside>
+
+    <main class="content col">
+      <h1>{{ title }}</h1>
+      <p><strong>Author:</strong> {{ author }}</p>
+      <p><strong>Line count:</strong> {{ linecount }}</p>
+
+      <div *ngFor="let line of lines">
+        <p>{{ line }}</p>
+      </div>
+    </main>
+  </div>
+</div>

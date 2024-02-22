@@ -1,0 +1,99 @@
+<div class="container mt-4">
+  <div class="row">
+    <aside class="col-md-3 mb-3">
+      <app-sidebar></app-sidebar>
+    </aside>
+
+    <section class="col-md-4">
+      <div class="d-flex justify-content-between align-items-center">
+        <app-header title="Authors"></app-header>
+        <button
+          class="btn btn-outline-danger"
+          *ngIf="authors.length"
+          (click)="removeAllFavoritesAuthors()"
+        >
+          Remove all...
+        </button>
+      </div>
+
+      <div *ngIf="!authors.length; else divAuthors" class="alert alert-info">
+        No authors added to favorites
+      </div>
+
+      <ng-template #divAuthors>
+        <div class="container">
+          <article class="col" *ngFor="let author of authors">
+            <div class="card mb-3">
+              <div
+                class="card-body d-flex justify-content-between align-items-center"
+              >
+                <a
+                  [routerLink]="['/home/author', author, 'books']"
+                  class="author-link"
+                >
+                  {{ author }}
+                </a>
+                <button
+                  class="favorite-button btn btn-outline-danger"
+                  (click)="removeFavoriteAuthor(author)"
+                >
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </ng-template>
+    </section>
+
+    <section class="col-md-4">
+      <div class="d-flex justify-content-between align-items-center">
+        <app-header title="Books"></app-header>
+        <button
+          class="btn btn-outline-danger"
+          *ngIf="books.length"
+          (click)="removeAllFavoritesBooks()"
+        >
+          Remove all...
+        </button>
+      </div>
+      <div *ngIf="!books.length; else divBooks" class="alert alert-info">
+        No books added to favorites
+      </div>
+
+      <ng-template #divBooks>
+        <div class="container">
+          <article class="row" *ngFor="let book of books">
+            <div class="card mb-3">
+              <div
+                class="card-body d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <h2 class="truncate-lines">Title: {{ book.title }}</h2>
+                  <p>Author: {{ book.author }}</p>
+                  <a
+                    [routerLink]="[
+                      '/home/author',
+                      book.author,
+                      'books',
+                      book.title
+                    ]"
+                    class="btn btn-primary mr-2"
+                  >
+                    Read more
+                  </a>
+                </div>
+                <button
+                  class="favorite-button btn btn-outline-danger"
+                  (click)="removeFavoriteBook(book)"
+                >
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </ng-template>
+    </section>
+  </div>
+</div>

@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+.favorite-button,
+.favorite-button:focus,
+.favorite-button:active {
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.favorite-button:hover,
+.favorite-button:focus,
+.favorite-button:active {
+  color: #e74c3c;
+}
+
+.favorite-button:hover > i,
+.favorite-button:focus > i,
+.favorite-button:active > i {
+  opacity: 1;
+}
+
+.favorite-button > i {
+  font-size: 20px;
+  opacity: 0.5;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin: 0;
+}
