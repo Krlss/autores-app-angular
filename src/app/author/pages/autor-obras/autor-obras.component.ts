@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '@app/auth/services/auth.service';
 import { ResponseBooks } from '@app/author/interfaces/author';
 import { AuthorService } from '@app/author/services/author.service';
 import { FavsService } from '@app/author/services/favs.service';
@@ -15,11 +16,13 @@ export class AutorObrasComponent implements OnInit {
   author: string = '';
   booksFavorites: ResponseBooks[] = [];
   loading = true;
+  isAuth = false;
 
   constructor(
     private authorService: AuthorService,
     private activedRoute: ActivatedRoute,
-    private favService: FavsService
+    private favService: FavsService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -39,6 +42,8 @@ export class AutorObrasComponent implements OnInit {
     this.favService.getFavoritesBooks().subscribe((books) => {
       this.booksFavorites = books;
     });
+
+    this.isAuth = this.authService.auth();
   }
 
   addToFavorites(book: ResponseBooks) {

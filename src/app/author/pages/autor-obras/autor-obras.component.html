@@ -7,7 +7,10 @@
     <main class="content col-lg-9 col-md-8">
       <app-header [title]="'Works by ' + author"> </app-header>
 
-      <div *ngIf="!data.length && !loading; else divBooks" class="alert alert-info">
+      <div
+        *ngIf="!data.length && !loading; else divBooks"
+        class="alert alert-info"
+      >
         No works or already in favorites...
       </div>
 
@@ -23,13 +26,19 @@
                     <h2 class="truncate-lines">Title: {{ book.title }}</h2>
                     <p>Line count: {{ book.linecount }}</p>
                     <a
-                      [routerLink]="['/home/author', author, 'books', book.title]"
+                      [routerLink]="[
+                        '/home/author',
+                        author,
+                        'books',
+                        book.title
+                      ]"
                       class="btn btn-primary mr-2"
                     >
                       Read more
                     </a>
                   </div>
                   <button
+                    *ngIf="isAuth"
                     class="favorite-button btn btn-outline-danger"
                     (click)="addToFavorites(book)"
                   >

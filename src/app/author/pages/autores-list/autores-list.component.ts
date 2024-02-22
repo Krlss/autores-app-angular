@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@app/auth/services/auth.service';
 import { AuthorService } from '@app/author/services/author.service';
 import { FavsService } from '@app/author/services/favs.service';
 
@@ -10,10 +11,12 @@ import { FavsService } from '@app/author/services/favs.service';
 export class AutoresListComponent implements OnInit {
   authors: string[] = [];
   loading = true;
+  isAuth = false;
 
   constructor(
     private authorService: AuthorService,
-    private favService: FavsService
+    private favService: FavsService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -22,6 +25,7 @@ export class AutoresListComponent implements OnInit {
       this.loading = false;
       this.removeFromListFavs();
     });
+    this.isAuth = this.authService.auth();
   }
 
   addToFavorites(author: string) {

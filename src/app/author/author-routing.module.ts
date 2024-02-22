@@ -4,6 +4,7 @@ import { AutoresListComponent } from './pages/autores-list/autores-list.componen
 import { AutorObrasComponent } from './pages/autor-obras/autor-obras.component';
 import { VerAutorObraComponent } from './pages/ver-autor-obra/ver-autor-obra.component';
 import { FavoritesComponent } from '@app/author/pages/favorites/favorites.component';
+import { favGuard } from './guards/fav.guard';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
       {
         path: 'favorites',
         component: FavoritesComponent,
+        canActivate: [favGuard],
       },
       {
         path: '**',

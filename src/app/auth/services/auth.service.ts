@@ -13,7 +13,7 @@ export class AuthService {
     }
   }
 
-  get auth() {
+  auth() {
     return this._auth;
   }
 

@@ -7,7 +7,10 @@
     <main class="content col-lg-9 col-md-8">
       <app-header title="Authors"></app-header>
 
-      <div *ngIf="!authors.length && !loading; else divAuthors" class="alert alert-info">
+      <div
+        *ngIf="!authors.length && !loading; else divAuthors"
+        class="alert alert-info"
+      >
         No authors or already in favorites...
       </div>
 
@@ -29,6 +32,7 @@
                     {{ author }}
                   </a>
                   <button
+                    *ngIf="isAuth"
                     class="favorite-button btn btn-outline-danger"
                     (click)="addToFavorites(author)"
                   >

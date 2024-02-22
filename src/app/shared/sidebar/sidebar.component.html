@@ -3,9 +3,18 @@
     <li class="list-group-item">
       <a [routerLink]="['/home']">Authors</a>
     </li>
-    <li class="list-group-item d-flex flex-column">
+
+    <li *ngIf="isAuth" class="list-group-item d-flex flex-column">
       <a [routerLink]="['/home/favorites']">Favorites</a>
       Authors {{ authors.length }} - Books {{ books.length }}
+    </li>
+
+    <li *ngIf="!isAuth" class="list-group-item">
+      <a [routerLink]="['/auth/login']">Login</a>
+    </li>
+
+    <li *ngIf="isAuth" class="list-group-item">
+      <button class="btn btn-link" (click)="cerrarSesion()">Logout</button>
     </li>
   </ul>
 </div>
