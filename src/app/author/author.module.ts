@@ -7,6 +7,8 @@ import { AuthorRoutingModule } from './author-routing.module';
 import { SharedModule } from '@app/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { CardAuthorsFavComponent } from './components/card-authors-fav/card-authors-fav.component';
+import { CardBooksFavComponent } from './components/card-books-fav/card-books-fav.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
     AutorObrasComponent,
     VerAutorObraComponent,
     FavoritesComponent,
+    CardAuthorsFavComponent,
+    CardBooksFavComponent,
   ],
   imports: [CommonModule, AuthorRoutingModule, SharedModule, RouterModule],
 })

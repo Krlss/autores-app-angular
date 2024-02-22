@@ -25,20 +25,4 @@ export class FavoritesComponent implements OnInit {
       this.books = books;
     });
   }
-
-  removeFavoriteAuthor(author: string) {
-    this.favService.removeFavoriteAuthor(author);
-  }
-
-  removeFavoriteBook(book: ResponseBooks) {
-    this.favService.removeFavoriteBook(book as ResponseBooksWithId);
-  }
-
-  removeAllFavoritesAuthors() {
-    this.favService.removeAllFavoritesAuthors();
-  }
-
-  removeAllFavoritesBooks() {
-    this.favService.removeAllFavoritesBooks();
-  }
 }
